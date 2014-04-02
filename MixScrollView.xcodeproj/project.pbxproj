@@ -1,0 +1,362 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		85731C1418EBF7A10087D436 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85731C1318EBF7A10087D436 /* Foundation.framework */; };
+		85731C1618EBF7A10087D436 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85731C1518EBF7A10087D436 /* CoreGraphics.framework */; };
+		85731C1818EBF7A10087D436 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85731C1718EBF7A10087D436 /* UIKit.framework */; };
+		85731C7218EBF8260087D436 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85731C6618EBF8260087D436 /* AppDelegate.m */; };
+		85731C7318EBF8260087D436 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85731C6718EBF8260087D436 /* Main_iPad.storyboard */; };
+		85731C7418EBF8260087D436 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85731C6918EBF8260087D436 /* Main_iPhone.storyboard */; };
+		85731C7518EBF8260087D436 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85731C6B18EBF8260087D436 /* InfoPlist.strings */; };
+		85731C7618EBF8260087D436 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85731C6D18EBF8260087D436 /* Images.xcassets */; };
+		85731C7718EBF8260087D436 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85731C6E18EBF8260087D436 /* main.m */; };
+		85731C7818EBF8260087D436 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85731C7018EBF8260087D436 /* ViewController.m */; };
+		85731C9018EC17CF0087D436 /* VerticalScrollCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85731C8818EC17CF0087D436 /* VerticalScrollCellView.m */; };
+		85731C9118EC17CF0087D436 /* VerticalScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85731C8A18EC17CF0087D436 /* VerticalScrollCell.m */; };
+		85731C9218EC17CF0087D436 /* HorizontalScrollCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85731C8C18EC17CF0087D436 /* HorizontalScrollCellView.m */; };
+		85731C9318EC17CF0087D436 /* HorizontalScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85731C8E18EC17CF0087D436 /* HorizontalScrollCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		85731C1018EBF7A10087D436 /* MixScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85731C1318EBF7A10087D436 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		85731C1518EBF7A10087D436 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		85731C1718EBF7A10087D436 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		85731C3518EBF7A10087D436 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		85731C6318EBF8260087D436 /* MixScrollView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MixScrollView-Info.plist"; path = "../4WayScrollView/MixScrollView-Info.plist"; sourceTree = "<group>"; };
+		85731C6418EBF8260087D436 /* MixScrollView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MixScrollView-Prefix.pch"; path = "../4WayScrollView/MixScrollView-Prefix.pch"; sourceTree = "<group>"; };
+		85731C6518EBF8260087D436 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../4WayScrollView/AppDelegate.h; sourceTree = "<group>"; };
+		85731C6618EBF8260087D436 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../4WayScrollView/AppDelegate.m; sourceTree = "<group>"; };
+		85731C6818EBF8260087D436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		85731C6A18EBF8260087D436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		85731C6C18EBF8260087D436 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		85731C6D18EBF8260087D436 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../4WayScrollView/Images.xcassets; sourceTree = "<group>"; };
+		85731C6E18EBF8260087D436 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../4WayScrollView/main.m; sourceTree = "<group>"; };
+		85731C6F18EBF8260087D436 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../4WayScrollView/ViewController.h; sourceTree = "<group>"; };
+		85731C7018EBF8260087D436 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../4WayScrollView/ViewController.m; sourceTree = "<group>"; };
+		85731C8818EC17CF0087D436 /* VerticalScrollCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalScrollCellView.m; sourceTree = "<group>"; };
+		85731C8918EC17CF0087D436 /* VerticalScrollCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalScrollCellView.h; sourceTree = "<group>"; };
+		85731C8A18EC17CF0087D436 /* VerticalScrollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalScrollCell.m; sourceTree = "<group>"; };
+		85731C8B18EC17CF0087D436 /* VerticalScrollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalScrollCell.h; sourceTree = "<group>"; };
+		85731C8C18EC17CF0087D436 /* HorizontalScrollCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalScrollCellView.m; sourceTree = "<group>"; };
+		85731C8D18EC17CF0087D436 /* HorizontalScrollCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScrollCellView.h; sourceTree = "<group>"; };
+		85731C8E18EC17CF0087D436 /* HorizontalScrollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalScrollCell.m; sourceTree = "<group>"; };
+		85731C8F18EC17CF0087D436 /* HorizontalScrollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScrollCell.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85731C0D18EBF7A10087D436 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85731C1618EBF7A10087D436 /* CoreGraphics.framework in Frameworks */,
+				85731C1818EBF7A10087D436 /* UIKit.framework in Frameworks */,
+				85731C1418EBF7A10087D436 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		85731C0718EBF7A10087D436 = {
+			isa = PBXGroup;
+			children = (
+				85731C8718EC17680087D436 /* MixScrollViewDemo */,
+				85731C8618EC17130087D436 /* MixScrollView */,
+				85731C1218EBF7A10087D436 /* Frameworks */,
+				85731C1118EBF7A10087D436 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		85731C1118EBF7A10087D436 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85731C1018EBF7A10087D436 /* MixScrollView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85731C1218EBF7A10087D436 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85731C1318EBF7A10087D436 /* Foundation.framework */,
+				85731C1518EBF7A10087D436 /* CoreGraphics.framework */,
+				85731C1718EBF7A10087D436 /* UIKit.framework */,
+				85731C3518EBF7A10087D436 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		85731C8618EC17130087D436 /* MixScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				85731C8818EC17CF0087D436 /* VerticalScrollCellView.m */,
+				85731C8918EC17CF0087D436 /* VerticalScrollCellView.h */,
+				85731C8A18EC17CF0087D436 /* VerticalScrollCell.m */,
+				85731C8B18EC17CF0087D436 /* VerticalScrollCell.h */,
+				85731C8C18EC17CF0087D436 /* HorizontalScrollCellView.m */,
+				85731C8D18EC17CF0087D436 /* HorizontalScrollCellView.h */,
+				85731C8E18EC17CF0087D436 /* HorizontalScrollCell.m */,
+				85731C8F18EC17CF0087D436 /* HorizontalScrollCell.h */,
+			);
+			path = MixScrollView;
+			sourceTree = "<group>";
+		};
+		85731C8718EC17680087D436 /* MixScrollViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				85731C6318EBF8260087D436 /* MixScrollView-Info.plist */,
+				85731C6418EBF8260087D436 /* MixScrollView-Prefix.pch */,
+				85731C6518EBF8260087D436 /* AppDelegate.h */,
+				85731C6618EBF8260087D436 /* AppDelegate.m */,
+				85731C6718EBF8260087D436 /* Main_iPad.storyboard */,
+				85731C6918EBF8260087D436 /* Main_iPhone.storyboard */,
+				85731C6B18EBF8260087D436 /* InfoPlist.strings */,
+				85731C6D18EBF8260087D436 /* Images.xcassets */,
+				85731C6E18EBF8260087D436 /* main.m */,
+				85731C6F18EBF8260087D436 /* ViewController.h */,
+				85731C7018EBF8260087D436 /* ViewController.m */,
+			);
+			path = MixScrollViewDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85731C0F18EBF7A10087D436 /* MixScrollView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85731C4518EBF7A10087D436 /* Build configuration list for PBXNativeTarget "MixScrollView" */;
+			buildPhases = (
+				85731C0C18EBF7A10087D436 /* Sources */,
+				85731C0D18EBF7A10087D436 /* Frameworks */,
+				85731C0E18EBF7A10087D436 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MixScrollView;
+			productName = 4WayScrollView;
+			productReference = 85731C1018EBF7A10087D436 /* MixScrollView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85731C0818EBF7A10087D436 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Kingway;
+			};
+			buildConfigurationList = 85731C0B18EBF7A10087D436 /* Build configuration list for PBXProject "MixScrollView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 85731C0718EBF7A10087D436;
+			productRefGroup = 85731C1118EBF7A10087D436 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85731C0F18EBF7A10087D436 /* MixScrollView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85731C0E18EBF7A10087D436 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85731C7618EBF8260087D436 /* Images.xcassets in Resources */,
+				85731C7418EBF8260087D436 /* Main_iPhone.storyboard in Resources */,
+				85731C7318EBF8260087D436 /* Main_iPad.storyboard in Resources */,
+				85731C7518EBF8260087D436 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85731C0C18EBF7A10087D436 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85731C9118EC17CF0087D436 /* VerticalScrollCell.m in Sources */,
+				85731C7818EBF8260087D436 /* ViewController.m in Sources */,
+				85731C9218EC17CF0087D436 /* HorizontalScrollCellView.m in Sources */,
+				85731C7718EBF8260087D436 /* main.m in Sources */,
+				85731C9318EC17CF0087D436 /* HorizontalScrollCell.m in Sources */,
+				85731C7218EBF8260087D436 /* AppDelegate.m in Sources */,
+				85731C9018EC17CF0087D436 /* VerticalScrollCellView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		85731C6718EBF8260087D436 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85731C6818EBF8260087D436 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			path = ../4WayScrollView;
+			sourceTree = "<group>";
+		};
+		85731C6918EBF8260087D436 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85731C6A18EBF8260087D436 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			path = ../4WayScrollView;
+			sourceTree = "<group>";
+		};
+		85731C6B18EBF8260087D436 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85731C6C18EBF8260087D436 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = ../4WayScrollView;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85731C4318EBF7A10087D436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		85731C4418EBF7A10087D436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85731C4618EBF7A10087D436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "4WayScrollView/MixScrollView-Prefix.pch";
+				INFOPLIST_FILE = "4WayScrollView/MixScrollView-Info.plist";
+				PRODUCT_NAME = MixScrollView;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		85731C4718EBF7A10087D436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "4WayScrollView/MixScrollView-Prefix.pch";
+				INFOPLIST_FILE = "4WayScrollView/MixScrollView-Info.plist";
+				PRODUCT_NAME = MixScrollView;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85731C0B18EBF7A10087D436 /* Build configuration list for PBXProject "MixScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85731C4318EBF7A10087D436 /* Debug */,
+				85731C4418EBF7A10087D436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85731C4518EBF7A10087D436 /* Build configuration list for PBXNativeTarget "MixScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85731C4618EBF7A10087D436 /* Debug */,
+				85731C4718EBF7A10087D436 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85731C0818EBF7A10087D436 /* Project object */;
+}
