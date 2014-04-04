@@ -66,4 +66,22 @@
     return cell;
 }
 
+#pragma mark - MixScrollView
+
+-(NSInteger)mixScrollView:(MixScrollView *)mixScrollView numberOfColumnsInRow:(NSInteger)row
+{
+    return 3;
+}
+
+-(UIView *)mixScrollView:(MixScrollView *)mixScrollView viewForColumnAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+-(CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightForColumnAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 10;
+}
+
+
 @end

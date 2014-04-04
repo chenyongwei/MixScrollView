@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MixScrollView : UIView <UITableViewDelegate, UITableViewDataSource>
+#import "MixScrollViewDataSource.h"
+#import "MixScrollViewDelegate.h"
+
+@interface MixScrollView : UIView <UITableViewDelegate, UITableViewDataSource, MixScrollViewDelegate, MixScrollViewDataSource>
 
 
 @end
