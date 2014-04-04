@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VerticalScrollCellView : UIView <UITableViewDelegate, UITableViewDataSource>
+@interface VerticalScrollCellView : UIView <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 - (id)initWithFrame:(CGRect)frame pageControlHeight:(CGFloat)pageControlHeight;
 -(void)scrollToPageAtIndex:(NSInteger)index;

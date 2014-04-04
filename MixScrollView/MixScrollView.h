@@ -11,7 +11,7 @@
 #import "MixScrollViewDataSource.h"
 #import "MixScrollViewDelegate.h"
 
-@interface MixScrollView : UIView <UITableViewDelegate, UITableViewDataSource, MixScrollViewDelegate, MixScrollViewDataSource>
+@interface MixScrollView : UIView <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, MixScrollViewDelegate, MixScrollViewDataSource>
 
 
 @end

@@ -107,6 +107,12 @@
     [self updatePageIndex:targetPage];
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self.tableView setContentOffset:CGPointMake(0, CGRectGetWidth(self.tableView.frame)) animated:NO];
+}
+
+
 
 #pragma mark - TableView
 
@@ -118,7 +124,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 30;
 }
 
 

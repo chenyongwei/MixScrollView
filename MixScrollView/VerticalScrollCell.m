@@ -36,10 +36,18 @@
     
     CGFloat innerViewHeight = aFrame.size.height * self.innerViewHeightPercent;
     
-    [self.verticalScrollCellView removeFromSuperview];
-    self.verticalScrollCellView = [[VerticalScrollCellView alloc] initWithFrame:CGRectMake(aFrame.origin.x, aFrame.origin.y + (aFrame.size.height - innerViewHeight) / 2, aFrame.size.width, innerViewHeight) pageControlHeight:30.0f];
-    
-    [self.contentView addSubview:self.verticalScrollCellView];
+    if (!self.verticalScrollCellView) {
+        self.verticalScrollCellView = [[VerticalScrollCellView alloc] initWithFrame:CGRectMake(aFrame.origin.x, aFrame.origin.y + (aFrame.size.height - innerViewHeight) / 2, aFrame.size.width, innerViewHeight) pageControlHeight:30.0f];
+        
+        [self.contentView addSubview:self.verticalScrollCellView];
+        
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.verticalScrollCellView.frame.origin.y + innerViewHeight, 200,10)];
+        label.text = [NSString stringWithFormat:@"v-index : %d", arc4random() % 100];
+        label.backgroundColor = [UIColor whiteColor];
+        [self.contentView addSubview:label];
+    }
+
 }
 
 @end
