@@ -32,11 +32,11 @@
 
 -(void)setup
 {
+    CGRect aFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     // Table View
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    self.tableView = [[UITableView alloc] initWithFrame:aFrame];
     self.tableView.scrollsToTop = NO;
     self.tableView.pagingEnabled = YES;
-//    self.tableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.allowsSelection = NO;
@@ -63,7 +63,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VerticalScrollCell *cell = [[VerticalScrollCell alloc] initWithFrame:self.view.frame];
+
+    VerticalScrollCell *cell = [[VerticalScrollCell alloc] initWithFrame:self.tableView.frame innerViewHeightPercent:0.95f];
     
     return cell;
 }

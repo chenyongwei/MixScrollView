@@ -10,6 +10,7 @@
 
 @interface VerticalScrollCellView : UIView <UITableViewDelegate, UITableViewDataSource>
 
+- (id)initWithFrame:(CGRect)frame pageControlHeight:(CGFloat)pageControlHeight;
 -(void)scrollToPageAtIndex:(NSInteger)index;
 
 @end

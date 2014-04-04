@@ -10,4 +10,6 @@
 
 @interface VerticalScrollCell : UITableViewCell
 
+-(id)initWithFrame:(CGRect)frame innerViewHeightPercent:(CGFloat)heightPercent;
+
 @end

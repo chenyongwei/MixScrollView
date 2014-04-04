@@ -113,8 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				85731CA318EC18120087D436 /* AppDelegate.h */,
-				85731C9418EC18120087D436 /* ViewController.m */,
 				85731C9518EC18120087D436 /* ViewController.h */,
+				85731C9418EC18120087D436 /* ViewController.m */,
 				85731C9E18EC18120087D436 /* Main_iPad.storyboard */,
 				85731CA018EC18120087D436 /* Main_iPhone.storyboard */,
 				85731C9B18EC18120087D436 /* InfoPlist.strings */,
@@ -319,6 +319,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MixScrollViewDemo/MixScrollView-Prefix.pch";
 				INFOPLIST_FILE = "MixScrollViewDemo/MixScrollView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = MixScrollView;
 				WRAPPER_EXTENSION = app;
 			};
@@ -332,6 +333,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MixScrollViewDemo/MixScrollView-Prefix.pch";
 				INFOPLIST_FILE = "MixScrollViewDemo/MixScrollView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = MixScrollView;
 				WRAPPER_EXTENSION = app;
 			};
