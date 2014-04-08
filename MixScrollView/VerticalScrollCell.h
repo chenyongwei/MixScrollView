@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MixScrollViewDelegate.h"
 
-@interface VerticalScrollCell : UITableViewCell
+@interface VerticalScrollCell : UITableViewCell <MixScrollViewDelegate>
 
--(id)initWithFrame:(CGRect)frame innerViewHeightPercent:(CGFloat)heightPercent;
+-(id)initWithFrame:(CGRect)frame innerViewHeightPercent:(CGFloat)heightPercent activity:(NSInteger)activity;
 
 @end

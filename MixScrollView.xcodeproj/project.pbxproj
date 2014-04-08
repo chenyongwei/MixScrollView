@@ -49,6 +49,7 @@
 		85731CA118EC18120087D436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		85731CA218EC18120087D436 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		85731CA318EC18120087D436 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		85B3B4BC18F3D26B00E12C97 /* NSIndexPath+MixScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+MixScrollView.h"; sourceTree = "<group>"; };
 		85D3C01218EEE44000245C19 /* MixScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixScrollViewDelegate.h; sourceTree = "<group>"; };
 		85D3C01518EEE67900245C19 /* MixScrollViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixScrollViewDataSource.h; sourceTree = "<group>"; };
 		85F8164A18EEA60D00E3D306 /* MixScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixScrollView.h; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 				85F8164B18EEA60D00E3D306 /* MixScrollView.m */,
 				85D3C01518EEE67900245C19 /* MixScrollViewDataSource.h */,
 				85D3C01218EEE44000245C19 /* MixScrollViewDelegate.h */,
+				85B3B4BC18F3D26B00E12C97 /* NSIndexPath+MixScrollView.h */,
 			);
 			path = MixScrollView;
 			sourceTree = "<group>";

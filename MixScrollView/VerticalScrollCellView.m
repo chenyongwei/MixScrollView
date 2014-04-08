@@ -9,7 +9,7 @@
 #import "VerticalScrollCellView.h"
 #import "HorizontalScrollCell.h"
 
-@interface VerticalScrollCellView ()
+@interface VerticalScrollCellView () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) CGFloat pageControlHeight;
 
@@ -26,12 +26,12 @@
 
 @implementation VerticalScrollCellView
 
-- (id)initWithFrame:(CGRect)frame pageControlHeight:(CGFloat)pageControlHeight
+- (id)initWithFrame:(CGRect)frame pageControlHeight:(CGFloat)aPageControlHeight staticViewHeight:(CGFloat)aStaticViewHeight;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.staticViewHeight = 200;
-        self.pageControlHeight = pageControlHeight;
+        self.staticViewHeight = aStaticViewHeight;
+        self.pageControlHeight = aPageControlHeight;
         [self setup:frame];
     }
     return self;
@@ -41,7 +41,7 @@
 {
     self.backgroundColor = [UIColor greenColor];
     
-    NSLog(@"VerticalScrollCellView, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);
+//    NSLog(@"VerticalScrollCellView, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);
     
     // Table View
     CGFloat offset = (CGRectGetWidth(self.frame) - (CGRectGetHeight(self.frame) - self.pageControlHeight - self.staticViewHeight)) / 2;
@@ -116,7 +116,11 @@
 //    [self.tableView setContentOffset:CGPointMake(0, CGRectGetWidth(self.tableView.frame)) animated:NO];
 //}
 
-
+#pragma mark - MixScrollViewDelegate
+-(CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightForStaticViewAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200.0f;
+}
 
 #pragma mark - TableView
 

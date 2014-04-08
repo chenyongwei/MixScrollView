@@ -13,16 +13,18 @@
 
 @property (nonatomic, strong) VerticalScrollCellView *verticalScrollCellView;
 @property (nonatomic) CGFloat innerViewHeightPercent;
+@property (nonatomic) NSInteger activity;
 
 @end
 
 @implementation VerticalScrollCell
 
--(id)initWithFrame:(CGRect)frame innerViewHeightPercent:(CGFloat)heightPercent
+-(id)initWithFrame:(CGRect)frame innerViewHeightPercent:(CGFloat)tHeightPercent activity:(NSInteger)tActivity
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.innerViewHeightPercent = heightPercent;
+        self.innerViewHeightPercent = tHeightPercent;
+        self.activity = tActivity;
         [self setup:frame];
     }
     return self;
@@ -35,9 +37,11 @@
     NSLog(@"VerticalScrollCell, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);
     
     CGFloat innerViewHeight = aFrame.size.height * self.innerViewHeightPercent;
+    CGFloat pageControlHeight = [self heightForPageControlAtActivity:self.activity];
+    CGFloat staticViewHeight = [self heightForStaticViewAtActivity:self.activity];
     
     if (!self.verticalScrollCellView) {
-        self.verticalScrollCellView = [[VerticalScrollCellView alloc] initWithFrame:CGRectMake(aFrame.origin.x, aFrame.origin.y + (aFrame.size.height - innerViewHeight) / 2, aFrame.size.width, innerViewHeight) pageControlHeight:30.0f];
+        self.verticalScrollCellView = [[VerticalScrollCellView alloc] initWithFrame:CGRectMake(aFrame.origin.x, aFrame.origin.y + (aFrame.size.height - innerViewHeight) / 2, aFrame.size.width, innerViewHeight) pageControlHeight:pageControlHeight staticViewHeight:staticViewHeight];
         
         [self.contentView addSubview:self.verticalScrollCellView];
         
@@ -48,6 +52,16 @@
         [self.contentView addSubview:label];
     }
 
+}
+
+-(CGFloat)heightForPageControlAtActivity:(NSInteger)activity
+{
+    return 30.0f;
+}
+
+-(CGFloat)heightForStaticViewAtActivity:(NSInteger)activity
+{
+    return 200.0f;
 }
 
 @end

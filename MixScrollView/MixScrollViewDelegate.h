@@ -14,8 +14,10 @@
 
 @optional
 
-- (CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightForColumnAtIndexPath:(NSIndexPath *)indexPath;
-- (CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightForStaticViewAtIndexPath:(NSIndexPath *)indexPath;
-- (CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightForDynamicViewAtIndexPath:(NSIndexPath *)indexPath;
+- (UIView *)mixScrollView:(MixScrollView *)mixScrollView staticViewInActivity:(NSInteger)activity;
+- (CGFloat)heightForStaticViewAtActivity:(NSInteger)activity;
+- (CGFloat)heightForPageControlAtActivity:(NSInteger)activity;
+- (CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightPercentForViewAtActivity:(NSInteger)activity;
+
 
 @end

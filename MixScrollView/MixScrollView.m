@@ -9,7 +9,7 @@
 #import "MixScrollView.h"
 #import "VerticalScrollCell.h"
 
-@interface MixScrollView ()
+@interface MixScrollView () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -29,7 +29,7 @@
 
 -(void)setup:(CGRect)frame
 {
-    CGRect aFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    CGRect aFrame = frame;
     // Table View
     self.tableView = [[UITableView alloc] initWithFrame:aFrame];
     self.tableView.scrollsToTop = NO;
@@ -43,8 +43,52 @@
     [self addSubview:self.tableView];
 }
 
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    [self.tableView setContentOffset:CGPointMake(0, CGRectGetHeight(self.tableView.frame)) animated:NO];
+//}
 
-#pragma mark - TableView
+#pragma mark - MixScrollViewDataSource
+
+-(NSInteger)numberOfActivitiesInMixScrollView:(MixScrollView *)mixScrollView
+{
+    return 5;
+}
+
+-(NSInteger)mixScrollView:(MixScrollView *)mixScrollView numberOfItemsInActivity:(NSInteger)activity
+{
+    return 3;
+}
+
+-(UIView *)mixScrollView:(MixScrollView *)mixScrollView viewForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat innerViewHeightPercent = [self mixScrollView:self heightPercentInActivity:indexPath.row];
+    
+    VerticalScrollCell *cell = [[VerticalScrollCell alloc] initWithFrame:self.tableView.frame innerViewHeightPercent:innerViewHeightPercent activity:indexPath.row];
+    
+    return cell;
+}
+
+#pragma mark - MixScrollViewDelegate
+
+-(CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightForStaticViewAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
+
+-(UIView *)mixScrollView:(MixScrollView *)mixScrollView staticViewInActivity:(NSInteger)activity
+{
+    return nil;
+}
+
+-(CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightPercentInActivity:(NSInteger)activity
+{
+    return 1.0f;
+}
+
+
+
+#pragma mark - TableView (Private)
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -54,39 +98,13 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [self numberOfActivitiesInMixScrollView:self];
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    VerticalScrollCell *cell = [[VerticalScrollCell alloc] initWithFrame:self.tableView.frame innerViewHeightPercent:0.95f];
-    
-    return cell;
+    return (UITableViewCell *)[self mixScrollView:self viewForItemAtIndexPath:indexPath];
 }
-
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    [self.tableView setContentOffset:CGPointMake(0, CGRectGetHeight(self.tableView.frame)) animated:NO];
-//}
-
-#pragma mark - MixScrollView
-
--(NSInteger)mixScrollView:(MixScrollView *)mixScrollView numberOfColumnsInRow:(NSInteger)row
-{
-    return 3;
-}
-
--(UIView *)mixScrollView:(MixScrollView *)mixScrollView viewForColumnAtIndexPath:(NSIndexPath *)indexPath
-{
-    return nil;
-}
-
--(CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightForColumnAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 10;
-}
-
 
 @end

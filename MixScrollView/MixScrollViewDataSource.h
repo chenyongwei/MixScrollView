@@ -14,12 +14,12 @@
 
 @required
 
-- (NSInteger)mixScrollView:(MixScrollView *)mixScrollView numberOfRowsInSection:(NSInteger)section;
+- (NSInteger)mixScrollView:(MixScrollView *)mixScrollView numberOfItemsInActivity:(NSInteger)activity;
 
-- (UIView *)mixScrollView:(MixScrollView *)mixScrollView viewForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UIView *)mixScrollView:(MixScrollView *)mixScrollView viewForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 
-- (NSInteger)numberOfSectionsInMixScrollView:(MixScrollView *)mixScrollView;              // Default is 1 if not implemented
+- (NSInteger)numberOfActivitiesInMixScrollView:(MixScrollView *)mixScrollView;              // Default is 1 if not implemented
 
 @end
