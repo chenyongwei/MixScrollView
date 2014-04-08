@@ -10,7 +10,7 @@
 
 @interface NSIndexPath (MixScrollView)
 
-+ (NSIndexPath *)indexPathForItem:(NSInteger)item inActivity:(NSInteger)Activity;
++ (NSIndexPath *)indexPathForItem:(NSInteger)item inActivity:(NSInteger)activity;
 
 @property(nonatomic,readonly) NSInteger activity;
 @property(nonatomic,readonly) NSInteger item;

@@ -12,10 +12,13 @@
 
 @interface VerticalScrollCell ()
 
-@property (nonatomic, strong) VerticalScrollCellView *verticalScrollCellView;
+// initialized properties
 @property (nonatomic) NSInteger activity;
 @property (nonatomic, strong) id <MixScrollViewDataSource> dataSource;
 @property (nonatomic, strong) id <MixScrollViewDelegate> delegate;
+
+// self created properties
+@property (nonatomic, strong) VerticalScrollCellView *verticalScrollCellView;
 
 @end
 
@@ -42,23 +45,22 @@
 
 -(void)setup:(CGRect)aFrame
 {
+#if DEBUG
     self.contentView.backgroundColor = [UIColor redColor];
-    
-    NSLog(@"VerticalScrollCell, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);
-    
-    CGFloat innerViewHeight = aFrame.size.height * 1;
-    CGFloat pageControlHeight = [self.delegate heightForPageControlAtActivity:self.activity];
-    CGFloat staticViewHeight = [self.delegate heightForStaticViewAtActivity:self.activity];
+#endif
+//    NSLog(@"VerticalScrollCell, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);
     
     if (!self.verticalScrollCellView) {
-        self.verticalScrollCellView = [[VerticalScrollCellView alloc] initWithFrame:CGRectMake(aFrame.origin.x, aFrame.origin.y + (aFrame.size.height - innerViewHeight) / 2, aFrame.size.width, innerViewHeight) pageControlHeight:pageControlHeight staticViewHeight:staticViewHeight];
+        self.verticalScrollCellView = [[VerticalScrollCellView alloc] initWithFrame:CGRectMake(aFrame.origin.x,
+                                                                                               aFrame.origin.y,
+                                                                                               CGRectGetWidth(aFrame),
+                                                                                               CGRectGetHeight(aFrame))
+                                                                    forActivity:self.activity
+                                                                    withDataSource:self.dataSource
+                                                                    andDelegate:self.delegate];
         
         [self.contentView addSubview:self.verticalScrollCellView];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.verticalScrollCellView.frame.origin.y + innerViewHeight, 200,10)];
-        label.text = [NSString stringWithFormat:@"v-index : %d", arc4random() % 100];
-        label.backgroundColor = [UIColor whiteColor];
-        [self.contentView addSubview:label];
     }
 
 }

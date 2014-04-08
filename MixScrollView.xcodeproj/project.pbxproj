@@ -19,6 +19,7 @@
 		85731CA718EC18120087D436 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85731C9918EC18120087D436 /* Images.xcassets */; };
 		85731CA818EC18120087D436 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85731C9B18EC18120087D436 /* InfoPlist.strings */; };
 		85731CAB18EC18120087D436 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85731CA218EC18120087D436 /* AppDelegate.m */; };
+		85B3B4C118F44F1700E12C97 /* NSIndexPath+MixScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B3B4C018F44F1700E12C97 /* NSIndexPath+MixScrollView.m */; };
 		85D3C01318EEE47200245C19 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85731C9E18EC18120087D436 /* Main_iPad.storyboard */; };
 		85D3C01418EEE47200245C19 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85731CA018EC18120087D436 /* Main_iPhone.storyboard */; };
 		85F8164C18EEA60D00E3D306 /* MixScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F8164B18EEA60D00E3D306 /* MixScrollView.m */; };
@@ -50,6 +51,7 @@
 		85731CA218EC18120087D436 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		85731CA318EC18120087D436 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		85B3B4BC18F3D26B00E12C97 /* NSIndexPath+MixScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+MixScrollView.h"; sourceTree = "<group>"; };
+		85B3B4C018F44F1700E12C97 /* NSIndexPath+MixScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+MixScrollView.m"; sourceTree = "<group>"; };
 		85D3C01218EEE44000245C19 /* MixScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixScrollViewDelegate.h; sourceTree = "<group>"; };
 		85D3C01518EEE67900245C19 /* MixScrollViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixScrollViewDataSource.h; sourceTree = "<group>"; };
 		85F8164A18EEA60D00E3D306 /* MixScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixScrollView.h; sourceTree = "<group>"; };
@@ -102,10 +104,10 @@
 		85731C8618EC17130087D436 /* MixScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				85731C8818EC17CF0087D436 /* VerticalScrollCellView.m */,
-				85731C8918EC17CF0087D436 /* VerticalScrollCellView.h */,
 				85731C8B18EC17CF0087D436 /* VerticalScrollCell.h */,
 				85731C8A18EC17CF0087D436 /* VerticalScrollCell.m */,
+				85731C8918EC17CF0087D436 /* VerticalScrollCellView.h */,
+				85731C8818EC17CF0087D436 /* VerticalScrollCellView.m */,
 				85731C8C18EC17CF0087D436 /* HorizontalScrollCellView.m */,
 				85731C8D18EC17CF0087D436 /* HorizontalScrollCellView.h */,
 				85731C8E18EC17CF0087D436 /* HorizontalScrollCell.m */,
@@ -115,6 +117,7 @@
 				85D3C01518EEE67900245C19 /* MixScrollViewDataSource.h */,
 				85D3C01218EEE44000245C19 /* MixScrollViewDelegate.h */,
 				85B3B4BC18F3D26B00E12C97 /* NSIndexPath+MixScrollView.h */,
+				85B3B4C018F44F1700E12C97 /* NSIndexPath+MixScrollView.m */,
 			);
 			path = MixScrollView;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				85731C9118EC17CF0087D436 /* VerticalScrollCell.m in Sources */,
 				85731CA418EC18120087D436 /* ViewController.m in Sources */,
 				85F8164C18EEA60D00E3D306 /* MixScrollView.m in Sources */,
+				85B3B4C118F44F1700E12C97 /* NSIndexPath+MixScrollView.m in Sources */,
 				85731C9218EC17CF0087D436 /* HorizontalScrollCellView.m in Sources */,
 				85731CAB18EC18120087D436 /* AppDelegate.m in Sources */,
 				85731C9318EC17CF0087D436 /* HorizontalScrollCell.m in Sources */,

@@ -49,6 +49,10 @@
     return 3;
 }
 
+-(UIView *)viewForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
 
 #pragma mark - MixScrollViewDelegate
 

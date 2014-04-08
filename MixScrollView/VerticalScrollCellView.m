@@ -11,13 +11,15 @@
 
 @interface VerticalScrollCellView () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic) CGFloat pageControlHeight;
+// initialized properties
+@property (nonatomic) NSInteger activity;
+@property (nonatomic, strong) id <MixScrollViewDataSource> dataSource;
+@property (nonatomic, strong) id <MixScrollViewDelegate> delegate;
 
+// self created properties
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) UIView *staticView;
-
-@property (nonatomic) CGFloat staticViewHeight;
 
 -(void)pageChanged:(id)sender;
 -(void)updatePageIndex:(NSInteger)targetPage;
@@ -26,12 +28,14 @@
 
 @implementation VerticalScrollCellView
 
-- (id)initWithFrame:(CGRect)frame pageControlHeight:(CGFloat)aPageControlHeight staticViewHeight:(CGFloat)aStaticViewHeight;
+- (id)initWithFrame:(CGRect)frame forActivity:(NSInteger)tActivity withDataSource:(id <MixScrollViewDataSource>)aDataSource andDelegate:(id <MixScrollViewDelegate>)aDelegate
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.staticViewHeight = aStaticViewHeight;
-        self.pageControlHeight = aPageControlHeight;
+        self.activity = tActivity;
+        self.delegate = aDelegate;
+        self.dataSource = aDataSource;
+        
         [self setup:frame];
     }
     return self;
@@ -39,16 +43,20 @@
 
 -(void)setup:(CGRect)aFrame
 {
+
+#if DEBUG
     self.backgroundColor = [UIColor greenColor];
-    
+#endif
 //    NSLog(@"VerticalScrollCellView, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);
     
+    CGFloat pageControlHeight = [self.delegate heightForPageControlAtActivity:self.activity];
+    CGFloat staticViewHeight = [self.delegate heightForStaticViewAtActivity:self.activity];
     // Table View
-    CGFloat offset = (CGRectGetWidth(self.frame) - (CGRectGetHeight(self.frame) - self.pageControlHeight - self.staticViewHeight)) / 2;
+    CGFloat offset = (CGRectGetWidth(self.frame) - (CGRectGetHeight(self.frame) - pageControlHeight - staticViewHeight)) / 2;
     self.tableView = [[UITableView alloc] initWithFrame:
                       CGRectMake(offset,
-                                 -offset + self.staticViewHeight,
-                                 CGRectGetHeight(self.frame) - self.pageControlHeight - self.staticViewHeight,
+                                 -offset + staticViewHeight,
+                                 CGRectGetHeight(self.frame) - pageControlHeight - staticViewHeight,
                                  CGRectGetWidth(self.frame))];
     self.tableView.scrollsToTop = NO;
     self.tableView.pagingEnabled = YES;
@@ -58,11 +66,17 @@
     self.tableView.allowsSelection = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+#if DEBUG
     self.tableView.backgroundColor = [UIColor yellowColor];
+#endif
     [self addSubview:self.tableView];
     
     // Page Control
-    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame) - self.pageControlHeight, CGRectGetWidth(self.frame), self.pageControlHeight)];
+    self.pageControl = [[UIPageControl alloc] initWithFrame:
+                                CGRectMake(0,
+                                           CGRectGetHeight(self.frame) - pageControlHeight,
+                                           CGRectGetWidth(self.frame),
+                                           pageControlHeight)];
     [self.pageControl setHidesForSinglePage:YES];
     [self.pageControl setPageIndicatorTintColor:[UIColor lightGrayColor]];
     [self.pageControl setCurrentPageIndicatorTintColor:[UIColor blackColor]];
@@ -70,8 +84,15 @@
     self.pageControl.backgroundColor = [UIColor blueColor];
     [self addSubview:self.pageControl];
     
-    self.staticView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), self.staticViewHeight)];
+    // Static View
+    self.staticView = [[UIView alloc] initWithFrame:
+                                CGRectMake(0,
+                                           0,
+                                           CGRectGetWidth(self.frame),
+                                           staticViewHeight)];
+#if DEBUG
     self.staticView.backgroundColor = [UIColor grayColor];
+#endif
     [self addSubview:self.staticView];
     
     // Bind Data for Page Control
@@ -116,12 +137,6 @@
 //    [self.tableView setContentOffset:CGPointMake(0, CGRectGetWidth(self.tableView.frame)) animated:NO];
 //}
 
-#pragma mark - MixScrollViewDelegate
--(CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightForStaticViewAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 200.0f;
-}
-
 #pragma mark - TableView
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -129,22 +144,21 @@
     return CGRectGetWidth(tableView.frame);
 }
 
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 5;
 }
 
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     HorizontalScrollCell *cell = [[HorizontalScrollCell alloc] initWithFrame:tableView.frame];
     
+#if DEBUG
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, tableView.frame.size.width - 20, tableView.frame.size.height - 20)];
     label.text = [NSString stringWithFormat:@"index : %ld", (long)indexPath.row];
     label.backgroundColor = [UIColor whiteColor];
     [cell.contentView addSubview:label];
-    
+#endif
 //    NSLog(@"HorizontalScrollView indexPath row: %ld frame x=%f, y=%f, w=%f, h=%f", (long)indexPath.row, label.frame.origin.x, label.frame.origin.y, label.frame.size.width, label.frame.size.height);
     
     return cell;

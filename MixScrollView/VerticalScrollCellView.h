@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "MixScrollViewDelegate.h"
+#import "MixScrollViewDataSource.h"
 
-@interface VerticalScrollCellView : UIView <MixScrollViewDelegate>
+@interface VerticalScrollCellView : UIView
 
-- (id)initWithFrame:(CGRect)frame pageControlHeight:(CGFloat)aPageControlHeight staticViewHeight:(CGFloat)aStaticViewHeight;
+- (id)initWithFrame:(CGRect)frame forActivity:(NSInteger)tActivity withDataSource:(id <MixScrollViewDataSource>)aDataSource andDelegate:(id <MixScrollViewDelegate>)aDelegate;
+
 -(void)scrollToPageAtIndex:(NSInteger)index;
 
 @end
