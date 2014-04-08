@@ -14,8 +14,6 @@
 
 @optional
 
-- (UIView *)staticViewAtActivity:(NSInteger)activity;
-
 - (CGFloat)heightForStaticViewAtActivity:(NSInteger)activity;
 - (CGFloat)heightForPageControlAtActivity:(NSInteger)activity;
 - (CGFloat)heightPercentForViewAtActivity:(NSInteger)activity;

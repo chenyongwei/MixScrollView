@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MixScrollViewDelegate.h"
+#import "MixScrollViewDataSource.h"
+
 @interface HorizontalScrollCell : UITableViewCell
+
+- (id)initWithFrame:(CGRect)frame forIndexPath:(NSIndexPath *)aIndexPath withDataSource:(id <MixScrollViewDataSource>)aDataSource andDelegate:(id <MixScrollViewDelegate>)aDelegate;
 
 @end

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "MixScrollView.h"
 #import "VerticalScrollCell.h"
+#import "ItemViewCellBase.h"
 
 @implementation ViewController
 
@@ -39,19 +40,52 @@
 
 #pragma mark - MixScrollViewDataSource
 
--(NSInteger)numberOfActivitiesInMixScrollView:(MixScrollView *)mixScrollView
+-(NSInteger)numberOfActivities
 {
     return 5;
 }
 
 -(NSInteger)numberOfItemsInActivity:(NSInteger)activity
 {
-    return 3;
+    return 4;
 }
 
--(UIView *)viewForItemAtIndexPath:(NSIndexPath *)indexPath
+-(ItemViewCellBase *)itemViewCellAtIndexPath:(NSIndexPath *)indexPath
 {
     return nil;
+}
+
+-(ItemViewCellBase *)itemTableView:(UITableView *)itemTableView itemCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellIdentifier = [NSString stringWithFormat:@"cellIdentifier-%@", @"ExampleCellClass"];
+    
+    ItemViewCellBase *cell = [itemTableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell)
+    {
+        cell = [[ItemViewCellBase alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+#if DEBUG
+    cell.contentView.backgroundColor = [UIColor purpleColor];
+#endif
+    cell.transform = CGAffineTransformMakeRotation(M_PI_2);
+    
+    
+#if DEBUG
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, itemTableView.frame.size.width - 20, itemTableView.frame.size.height - 20)];
+    label.text = [NSString stringWithFormat:@"index : %ld", (long)indexPath.row];
+    label.backgroundColor = [UIColor whiteColor];
+    [cell.contentView addSubview:label];
+#endif
+
+    return cell;
+}
+
+-(UIView *)staticViewAtActivity:(NSInteger)activity
+{
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor grayColor];
+
+    return view;
 }
 
 #pragma mark - MixScrollViewDelegate
@@ -64,11 +98,6 @@
 -(CGFloat)heightForStaticViewAtActivity:(NSInteger)activity
 {
     return 200.0f;
-}
-
--(UIView *)staticViewAtActivity:(NSInteger)activity
-{
-    return nil;
 }
 
 -(CGFloat)heightPercentForViewAtActivity:(NSInteger)activity

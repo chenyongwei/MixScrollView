@@ -1,5 +1,5 @@
 //
-//  VerticalScrollCellView.h
+//  ActivityView.h
 //  MixScrollView
 //
 //  Created by Yongwei on 4/2/14.
@@ -11,7 +11,7 @@
 #import "MixScrollViewDelegate.h"
 #import "MixScrollViewDataSource.h"
 
-@interface VerticalScrollCellView : UIView
+@interface ActivityView : UIView
 
 - (id)initWithFrame:(CGRect)frame forActivity:(NSInteger)tActivity withDataSource:(id <MixScrollViewDataSource>)aDataSource andDelegate:(id <MixScrollViewDelegate>)aDelegate;
 

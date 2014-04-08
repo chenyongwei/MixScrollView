@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class MixScrollView;
+@class ItemViewCellBase;
 
 @protocol MixScrollViewDataSource <NSObject>
 
@@ -16,10 +17,13 @@
 
 - (NSInteger)numberOfItemsInActivity:(NSInteger)activity;
 
-- (UIView *)viewForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UIView *)staticViewAtActivity:(NSInteger)activity;
+-(ItemViewCellBase *)itemViewCellAtIndexPath:(NSIndexPath *)indexPath;
+
+-(ItemViewCellBase *)itemTableView:(UITableView *)itemTableView itemCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 
-- (NSInteger)numberOfActivitiesInMixScrollView:(MixScrollView *)mixScrollView;              // Default is 1 if not implemented
+- (NSInteger)numberOfActivities;              // Default is 1 if not implemented
 
 @end
