@@ -104,8 +104,8 @@
 			children = (
 				85731C8818EC17CF0087D436 /* VerticalScrollCellView.m */,
 				85731C8918EC17CF0087D436 /* VerticalScrollCellView.h */,
-				85731C8A18EC17CF0087D436 /* VerticalScrollCell.m */,
 				85731C8B18EC17CF0087D436 /* VerticalScrollCell.h */,
+				85731C8A18EC17CF0087D436 /* VerticalScrollCell.m */,
 				85731C8C18EC17CF0087D436 /* HorizontalScrollCellView.m */,
 				85731C8D18EC17CF0087D436 /* HorizontalScrollCellView.h */,
 				85731C8E18EC17CF0087D436 /* HorizontalScrollCell.m */,

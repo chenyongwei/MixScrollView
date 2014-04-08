@@ -14,10 +14,11 @@
 
 @optional
 
-- (UIView *)mixScrollView:(MixScrollView *)mixScrollView staticViewInActivity:(NSInteger)activity;
+- (UIView *)staticViewAtActivity:(NSInteger)activity;
+
 - (CGFloat)heightForStaticViewAtActivity:(NSInteger)activity;
 - (CGFloat)heightForPageControlAtActivity:(NSInteger)activity;
-- (CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightPercentForViewAtActivity:(NSInteger)activity;
+- (CGFloat)heightPercentForViewAtActivity:(NSInteger)activity;
 
 
 @end

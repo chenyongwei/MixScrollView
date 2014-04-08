@@ -14,9 +14,9 @@
 
 @required
 
-- (NSInteger)mixScrollView:(MixScrollView *)mixScrollView numberOfItemsInActivity:(NSInteger)activity;
+- (NSInteger)numberOfItemsInActivity:(NSInteger)activity;
 
-- (UIView *)mixScrollView:(MixScrollView *)mixScrollView viewForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UIView *)viewForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
 

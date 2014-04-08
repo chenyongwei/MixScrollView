@@ -26,7 +26,6 @@
     return self;
 }
 
-
 -(void)setup:(CGRect)frame
 {
     CGRect aFrame = frame;
@@ -43,52 +42,7 @@
     [self addSubview:self.tableView];
 }
 
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    [self.tableView setContentOffset:CGPointMake(0, CGRectGetHeight(self.tableView.frame)) animated:NO];
-//}
-
-#pragma mark - MixScrollViewDataSource
-
--(NSInteger)numberOfActivitiesInMixScrollView:(MixScrollView *)mixScrollView
-{
-    return 5;
-}
-
--(NSInteger)mixScrollView:(MixScrollView *)mixScrollView numberOfItemsInActivity:(NSInteger)activity
-{
-    return 3;
-}
-
--(UIView *)mixScrollView:(MixScrollView *)mixScrollView viewForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat innerViewHeightPercent = [self mixScrollView:self heightPercentInActivity:indexPath.row];
-    
-    VerticalScrollCell *cell = [[VerticalScrollCell alloc] initWithFrame:self.tableView.frame innerViewHeightPercent:innerViewHeightPercent activity:indexPath.row];
-    
-    return cell;
-}
-
-#pragma mark - MixScrollViewDelegate
-
--(CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightForStaticViewAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 200;
-}
-
--(UIView *)mixScrollView:(MixScrollView *)mixScrollView staticViewInActivity:(NSInteger)activity
-{
-    return nil;
-}
-
--(CGFloat)mixScrollView:(MixScrollView *)mixScrollView heightPercentInActivity:(NSInteger)activity
-{
-    return 1.0f;
-}
-
-
-
-#pragma mark - TableView (Private)
+#pragma mark - TableView
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -98,13 +52,24 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self numberOfActivitiesInMixScrollView:self];
+    return [self.dataSource numberOfActivitiesInMixScrollView:self];
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (UITableViewCell *)[self mixScrollView:self viewForItemAtIndexPath:indexPath];
+    NSInteger indexPathActivity = indexPath.row;
+    CGFloat activityViewHeight = [self.delegate heightPercentForViewAtActivity:indexPathActivity] * CGRectGetHeight(self.tableView.frame);
+    // make activity cell centered
+    CGRect activityCellFrame = CGRectMake(
+                                          self.tableView.frame.origin.x,
+                                          self.tableView.frame.origin.y + (CGRectGetHeight(self.tableView.frame) - activityViewHeight) /2 ,
+                                          CGRectGetWidth(self.tableView.frame),
+                                          activityViewHeight);
+    
+    VerticalScrollCell *cell = [[VerticalScrollCell alloc] initWithFrame:activityCellFrame forActivity:indexPathActivity withDataSource:self.dataSource andDelegate:self.delegate];
+    
+    return cell;
 }
 
 @end

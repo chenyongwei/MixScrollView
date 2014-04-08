@@ -11,7 +11,9 @@
 #import "MixScrollViewDataSource.h"
 #import "MixScrollViewDelegate.h"
 
-@interface MixScrollView : UIView <MixScrollViewDelegate, MixScrollViewDataSource>
+@interface MixScrollView : UIView
 
+@property (nonatomic, strong) id <MixScrollViewDelegate> delegate;
+@property (nonatomic, strong) id <MixScrollViewDataSource> dataSource;
 
 @end

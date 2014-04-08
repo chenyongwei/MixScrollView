@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "MixScrollViewDelegate.h"
+#import "MixScrollViewDataSource.h"
 
-@interface VerticalScrollCell : UITableViewCell <MixScrollViewDelegate>
+@interface VerticalScrollCell : UITableViewCell
 
--(id)initWithFrame:(CGRect)frame innerViewHeightPercent:(CGFloat)heightPercent activity:(NSInteger)activity;
+-(id)initWithFrame:(CGRect)aFrame forActivity:(NSInteger)tActivity withDataSource:(id <MixScrollViewDataSource>)aDataSource andDelegate:(id <MixScrollViewDelegate>)aDelegate;
 
 @end
