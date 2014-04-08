@@ -54,7 +54,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 50;
+    return 5;
 }
 
 
@@ -66,16 +66,16 @@
     return cell;
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    [self.tableView setContentOffset:CGPointMake(0, CGRectGetHeight(self.tableView.frame)) animated:NO];
-}
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    [self.tableView setContentOffset:CGPointMake(0, CGRectGetHeight(self.tableView.frame)) animated:NO];
+//}
 
 #pragma mark - MixScrollView
 
 -(NSInteger)mixScrollView:(MixScrollView *)mixScrollView numberOfColumnsInRow:(NSInteger)row
 {
-    return 30;
+    return 3;
 }
 
 -(UIView *)mixScrollView:(MixScrollView *)mixScrollView viewForColumnAtIndexPath:(NSIndexPath *)indexPath

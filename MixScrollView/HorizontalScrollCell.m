@@ -33,7 +33,7 @@
     
     self.transform = CGAffineTransformMakeRotation(M_PI_2);
     
-    NSLog(@"HorizontalScrollCell, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);
+//    NSLog(@"HorizontalScrollCell, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);
     
     
 }

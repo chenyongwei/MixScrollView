@@ -45,7 +45,11 @@
     
     // Table View
     CGFloat offset = (CGRectGetWidth(self.frame) - (CGRectGetHeight(self.frame) - self.pageControlHeight - self.staticViewHeight)) / 2;
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(offset, -offset, CGRectGetHeight(self.frame) - self.pageControlHeight - self.staticViewHeight, CGRectGetWidth(self.frame))];
+    self.tableView = [[UITableView alloc] initWithFrame:
+                      CGRectMake(offset,
+                                 -offset + self.staticViewHeight,
+                                 CGRectGetHeight(self.frame) - self.pageControlHeight - self.staticViewHeight,
+                                 CGRectGetWidth(self.frame))];
     self.tableView.scrollsToTop = NO;
     self.tableView.pagingEnabled = YES;
     self.tableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
@@ -58,7 +62,7 @@
     [self addSubview:self.tableView];
     
     // Page Control
-    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.tableView.frame), CGRectGetWidth(self.frame), self.pageControlHeight)];
+    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame) - self.pageControlHeight, CGRectGetWidth(self.frame), self.pageControlHeight)];
     [self.pageControl setHidesForSinglePage:YES];
     [self.pageControl setPageIndicatorTintColor:[UIColor lightGrayColor]];
     [self.pageControl setCurrentPageIndicatorTintColor:[UIColor blackColor]];
@@ -66,12 +70,12 @@
     self.pageControl.backgroundColor = [UIColor blueColor];
     [self addSubview:self.pageControl];
     
-    self.staticView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.tableView.frame) + self.pageControlHeight, CGRectGetWidth(self.frame), self.staticViewHeight)];
+    self.staticView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), self.staticViewHeight)];
     self.staticView.backgroundColor = [UIColor grayColor];
     [self addSubview:self.staticView];
     
     // Bind Data for Page Control
-    self.pageControl.numberOfPages = 3;
+    self.pageControl.numberOfPages = 5;
     self.pageControl.currentPage = 0;
 
 }
@@ -107,10 +111,10 @@
     [self updatePageIndex:targetPage];
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    [self.tableView setContentOffset:CGPointMake(0, CGRectGetWidth(self.tableView.frame)) animated:NO];
-}
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    [self.tableView setContentOffset:CGPointMake(0, CGRectGetWidth(self.tableView.frame)) animated:NO];
+//}
 
 
 
@@ -124,7 +128,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return 5;
 }
 
 
@@ -132,12 +136,12 @@
 {
     HorizontalScrollCell *cell = [[HorizontalScrollCell alloc] initWithFrame:tableView.frame];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(tableView.frame.origin.x + 10, tableView.frame.origin.y + 10, tableView.frame.size.width - 20, tableView.frame.size.height - 20)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, tableView.frame.size.width - 20, tableView.frame.size.height - 20)];
     label.text = [NSString stringWithFormat:@"index : %ld", (long)indexPath.row];
     label.backgroundColor = [UIColor whiteColor];
     [cell.contentView addSubview:label];
     
-    NSLog(@"HorizontalScrollView indexPath row: %ld", (long)indexPath.row);
+//    NSLog(@"HorizontalScrollView indexPath row: %ld frame x=%f, y=%f, w=%f, h=%f", (long)indexPath.row, label.frame.origin.x, label.frame.origin.y, label.frame.size.width, label.frame.size.height);
     
     return cell;
 }
