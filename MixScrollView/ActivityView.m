@@ -7,7 +7,6 @@
 //
 
 #import "ActivityView.h"
-#import "HorizontalScrollCell.h"
 
 @interface ActivityView () <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -155,8 +154,32 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = (UITableViewCell *)[self.dataSource itemTableView:tableView itemCellAtIndexPath:indexPath]; // the delegate implementation already care about the reuse.
-    return cell;
+    
+    NSString *cellIdentifier = [NSString stringWithFormat:@"cellIdentifier-%@", @"ItemViewCellWeb"];
+    
+    ItemViewCellBase *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell)
+    {
+        cell = [self.dataSource createItemViewCell:indexPath.row atActivity:self.activity reuseIdentifier:cellIdentifier];
+    }
+    // transform because the table view transform already
+    cell.transform = CGAffineTransformMakeRotation(M_PI_2);
+
+    // set data to custom cell
+    cell.data = [self.dataSource dataOfItem:indexPath.row atActivity:self.activity];
+    
+#if DEBUG
+    cell.contentView.backgroundColor = [UIColor purpleColor];
+#endif
+    
+//#if DEBUG
+    //    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, itemTableView.frame.size.width - 20, itemTableView.frame.size.height - 20)];
+    //    label.text = [NSString stringWithFormat:@"index : %ld", (long)item];
+    //    label.backgroundColor = [UIColor whiteColor];
+    //    [cell.contentView addSubview:label];
+//#endif
+    
+    return (UITableViewCell *)cell;
 }
 
 @end

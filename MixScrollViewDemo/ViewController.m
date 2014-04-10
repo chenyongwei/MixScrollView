@@ -10,6 +10,8 @@
 #import "MixScrollView.h"
 #import "VerticalScrollCell.h"
 #import "ItemViewCellBase.h"
+#import "ItemViewCellWeb.h"
+#import "ItemViewCellImage.h"
 
 @implementation ViewController
 
@@ -47,37 +49,61 @@
 
 -(NSInteger)numberOfItemsInActivity:(NSInteger)activity
 {
-    return 4;
+    return 3;
 }
 
--(ItemViewCellBase *)itemViewCellAtIndexPath:(NSIndexPath *)indexPath
+-(ItemViewCellBase *)createItemViewCell:(NSInteger)item atActivity:(NSInteger)activity reuseIdentifier:(NSString *)cellIdentifier
 {
-    return nil;
-}
-
--(ItemViewCellBase *)itemTableView:(UITableView *)itemTableView itemCellAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *cellIdentifier = [NSString stringWithFormat:@"cellIdentifier-%@", @"ExampleCellClass"];
-    
-    ItemViewCellBase *cell = [itemTableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell)
-    {
-        cell = [[ItemViewCellBase alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    ItemViewCellBase *cell;
+    switch (activity) {
+        case 0:
+            cell = [[ItemViewCellWeb alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            break;
+        case 1:
+            cell = [[ItemViewCellImage alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            break;
+        default:
+            cell = [[ItemViewCellBase alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            break;
     }
-#if DEBUG
-    cell.contentView.backgroundColor = [UIColor purpleColor];
-#endif
-    cell.transform = CGAffineTransformMakeRotation(M_PI_2);
-    
-    
-#if DEBUG
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, itemTableView.frame.size.width - 20, itemTableView.frame.size.height - 20)];
-    label.text = [NSString stringWithFormat:@"index : %ld", (long)indexPath.row];
-    label.backgroundColor = [UIColor whiteColor];
-    [cell.contentView addSubview:label];
-#endif
 
     return cell;
+}
+
+-(id)dataOfItem:(NSInteger)item atActivity:(NSInteger)activity
+{
+    id data;
+    switch (activity) {
+        case 0:
+            data = @"http://www.ef.com";
+            break;
+        case 1:
+            switch (item) {
+                case 0:
+                    data = @"IMG_0150";
+                    break;
+                case 1:
+                    data = @"IMG_0154";
+                    break;
+                case 2:
+                    data = @"IMG_0163";
+                    break;
+                case 3:
+                    data = @"IMG_0169";
+                    break;
+                case 4:
+                    data = @"IMG_0170";
+                    break;
+                default:
+                    data = @"";
+                    break;
+            }
+            break;
+        default:
+            data = nil;
+            break;
+    }
+    return data;
 }
 
 -(UIView *)staticViewAtActivity:(NSInteger)activity

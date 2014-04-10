@@ -10,4 +10,6 @@
 
 @interface ItemViewCellBase : UITableViewCell
 
+@property (nonatomic, strong) id data;
+
 @end

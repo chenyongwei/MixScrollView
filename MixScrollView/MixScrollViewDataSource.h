@@ -7,23 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ItemViewCellBase.h"
 
 @class MixScrollView;
-@class ItemViewCellBase;
+
 
 @protocol MixScrollViewDataSource <NSObject>
 
 @required
-
 - (NSInteger)numberOfItemsInActivity:(NSInteger)activity;
-
 - (UIView *)staticViewAtActivity:(NSInteger)activity;
--(ItemViewCellBase *)itemViewCellAtIndexPath:(NSIndexPath *)indexPath;
-
--(ItemViewCellBase *)itemTableView:(UITableView *)itemTableView itemCellAtIndexPath:(NSIndexPath *)indexPath;
+-(ItemViewCellBase *)createItemViewCell:(NSInteger)item atActivity:(NSInteger)activity reuseIdentifier:(NSString *)cellIdentifier;
+-(id)dataOfItem:(NSInteger)item atActivity:(NSInteger)activity;
 
 @optional
-
 - (NSInteger)numberOfActivities;              // Default is 1 if not implemented
 
 @end
