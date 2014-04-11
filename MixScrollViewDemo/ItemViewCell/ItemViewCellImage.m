@@ -27,6 +27,7 @@
     if (!self.imageView) {
         imageView = [[UIImageView alloc] init];
         imageView.backgroundColor = [UIColor grayColor];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         
         [self.contentView addSubview:imageView];
     }

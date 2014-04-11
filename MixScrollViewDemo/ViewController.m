@@ -123,12 +123,32 @@
 
 -(CGFloat)heightForStaticViewAtActivity:(NSInteger)activity
 {
-    return 200.0f;
+    CGFloat height = 200.0f;
+    switch (activity) {
+        case 2:
+            height = 0.0f;
+            break;
+            
+        default:
+            break;
+    }
+    return height;
 }
 
 -(CGFloat)heightPercentForViewAtActivity:(NSInteger)activity
 {
-    return 0.9f;
+    CGFloat height = 0.9f;
+    
+    switch (activity) {
+        case 2:
+            height = 1.0f;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return height;
 }
 
 
