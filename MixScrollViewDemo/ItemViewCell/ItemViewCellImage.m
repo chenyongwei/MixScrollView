@@ -8,14 +8,10 @@
 
 #import "ItemViewCellImage.h"
 
-@interface ItemViewCellImage ()
-
-@property (nonatomic, strong) UIImageView *imageView;
-
-@end
-
 @implementation ItemViewCellImage
-
+{
+    UIImageView *imageView;
+}
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -29,10 +25,10 @@
 -(void)setup
 {
     if (!self.imageView) {
-        self.imageView = [[UIImageView alloc] init];
-        self.imageView.backgroundColor = [UIColor grayColor];
+        imageView = [[UIImageView alloc] init];
+        imageView.backgroundColor = [UIColor grayColor];
         
-        [self.contentView addSubview:self.imageView];
+        [self.contentView addSubview:imageView];
     }
 }
 
@@ -40,7 +36,7 @@
 {
     [super setFrame:frame];
 
-    self.imageView.frame = CGRectMake(0, 0, CGRectGetHeight(frame), CGRectGetWidth(frame));
+    imageView.frame = CGRectMake(0, 0, CGRectGetHeight(frame), CGRectGetWidth(frame));
 }
 
 -(void)setData:(id)data

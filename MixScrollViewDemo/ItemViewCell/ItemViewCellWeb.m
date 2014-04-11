@@ -8,13 +8,10 @@
 
 #import "ItemViewCellWeb.h"
 
-@interface ItemViewCellWeb ()
-
-@property (nonatomic, strong) UIWebView *webView;
-
-@end
-
 @implementation ItemViewCellWeb
+{
+    UIWebView *webView;
+}
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -27,18 +24,18 @@
 
 -(void)setup
 {
-    if (!self.webView) {
-        self.webView = [[UIWebView alloc] init];
+    if (!webView) {
+        webView = [[UIWebView alloc] init];
         
-        self.webView.scrollView.scrollEnabled = YES;
-        self.webView.scrollView.bounces = NO;
-        self.webView.allowsInlineMediaPlayback = YES;
-        self.webView.mediaPlaybackAllowsAirPlay = YES;
-        self.webView.mediaPlaybackRequiresUserAction = NO;
-        self.webView.scalesPageToFit = YES;
-        self.webView.userInteractionEnabled = NO;
+        webView.scrollView.scrollEnabled = YES;
+        webView.scrollView.bounces = NO;
+        webView.allowsInlineMediaPlayback = YES;
+        webView.mediaPlaybackAllowsAirPlay = YES;
+        webView.mediaPlaybackRequiresUserAction = NO;
+        webView.scalesPageToFit = YES;
+        webView.userInteractionEnabled = NO;
 
-        [self.contentView addSubview:self.webView];
+        [self.contentView addSubview:webView];
     }
 }
 
@@ -46,7 +43,7 @@
 {
     [super setFrame:frame];
     
-    self.webView.frame = CGRectMake(0, 0, CGRectGetHeight(frame), CGRectGetWidth(frame));
+    webView.frame = CGRectMake(0, 0, CGRectGetHeight(frame), CGRectGetWidth(frame));
 }
 
 -(void)setData:(id)data
@@ -54,7 +51,7 @@
     NSString *urlStr = (NSString *)data;
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
-    [self.webView loadRequest:urlRequest];
+    [webView loadRequest:urlRequest];
 }
 
 @end
