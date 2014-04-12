@@ -17,6 +17,9 @@
 @required
 - (NSInteger)numberOfItemsInActivity:(NSInteger)activity;
 - (UIView *)staticViewAtActivity:(NSInteger)activity;
+- (UIView *)startViewAtActivity:(NSInteger)activity withFrame:(CGRect)frame;
+- (UIView *)resultViewAtActivity:(NSInteger)activity withFrame:(CGRect)frame;
+
 -(ItemViewCellBase *)createItemViewCell:(NSInteger)item atActivity:(NSInteger)activity reuseIdentifier:(NSString *)cellIdentifier;
 -(id)dataOfItem:(NSInteger)item atActivity:(NSInteger)activity;
 

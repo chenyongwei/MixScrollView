@@ -74,6 +74,10 @@
 #if DEBUG
     self.tableView.backgroundColor = [UIColor yellowColor];
 #endif
+    
+    self.tableView.tableHeaderView = [self tableHeaderView];
+    self.tableView.tableFooterView = [self tableFooterView];
+    
     [self addSubview:self.tableView];
     
     // Page Control
@@ -105,6 +109,39 @@
     self.pageControl.currentPage = 0;
 }
 
+-(UIView *)tableHeaderView
+{
+    UIView *containerView;
+    
+    CGRect aFrame = CGRectMake(0, 0, CGRectGetWidth(self.tableView.frame), CGRectGetHeight(self.tableView.frame));
+    UIView *subView = [self.dataSource startViewAtActivity:self.activity withFrame:aFrame];
+    if (subView) {
+        containerView = [[UIView alloc] initWithFrame:aFrame];
+        containerView.backgroundColor = [UIColor darkGrayColor];
+        [containerView addSubview: subView];
+         containerView.transform = CGAffineTransformMakeRotation(M_PI_2);
+    }
+         
+    return containerView;
+}
+
+-(UIView *)tableFooterView
+{
+    UIView *containerView;
+
+    CGFloat offset = (CGRectGetWidth(self.tableView.frame) - CGRectGetHeight(self.tableView.frame)) / 2;
+    CGRect aFrame = CGRectMake(0, offset, CGRectGetWidth(self.tableView.frame), CGRectGetHeight(self.tableView.frame));
+    UIView *subView = [self.dataSource startViewAtActivity:self.activity withFrame:aFrame];
+    if (subView) {
+        containerView = [[UIView alloc] initWithFrame:aFrame];
+        containerView.backgroundColor = [UIColor darkGrayColor];
+        [containerView addSubview: [self.dataSource resultViewAtActivity:self.activity withFrame:aFrame]];
+        containerView.transform = CGAffineTransformMakeRotation(M_PI_2);
+    }
+    
+    return containerView;
+}
+
 
 #pragma mark - Scrolling & Paging
 
@@ -131,7 +168,10 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSInteger targetPage = [[[self.tableView indexPathsForVisibleRows] firstObject] row];
+    NSArray *indexPathForVisiableRows = [self.tableView indexPathsForVisibleRows];
+    if ([indexPathForVisiableRows count] == 0 || indexPathForVisiableRows == nil) { return; }
+    
+    NSInteger targetPage = [[indexPathForVisiableRows firstObject] row];
     [self updatePageIndex:targetPage];
 }
 
@@ -181,5 +221,6 @@
     
     return (UITableViewCell *)cell;
 }
+
 
 @end

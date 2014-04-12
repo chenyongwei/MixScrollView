@@ -30,7 +30,6 @@
 
 -(void)setup
 {
-    
     MixScrollView *mixScrollView = [[MixScrollView alloc] initWithFrame:self.view.frame];
     mixScrollView.delegate = self;
     mixScrollView.dataSource = self;
@@ -151,5 +150,20 @@
     return height;
 }
 
+-(UIView *)startViewAtActivity:(NSInteger)activity withFrame:(CGRect)frame
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.text = @"label header";
+    label.backgroundColor = [UIColor greenColor];
+    return label;
+}
+
+-(UIView *)resultViewAtActivity:(NSInteger)activity withFrame:(CGRect)frame
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.text = @"label footer";
+    label.backgroundColor = [UIColor greenColor];
+    return label;
+}
 
 @end
