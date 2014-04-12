@@ -45,7 +45,7 @@
 
 -(void)setup:(CGRect)aFrame
 {
-#if DEBUG
+#ifdef SHOW_DEBUG_COLOR
     self.contentView.backgroundColor = [UIColor redColor];
 #endif
 //    NSLog(@"ActivityView, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);

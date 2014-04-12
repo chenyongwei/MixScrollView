@@ -49,7 +49,7 @@
 -(void)setup:(CGRect)aFrame
 {
 
-#if DEBUG
+#ifdef SHOW_DEBUG_COLOR
     self.backgroundColor = [UIColor greenColor];
 #endif
 //    NSLog(@"VerticalScrollCellView, x= %f, y= %f, w= %f, h= %f", aFrame.origin.x, aFrame.origin.y, aFrame.size.width, aFrame.size.height);
@@ -71,7 +71,7 @@
     self.tableView.allowsSelection = NO;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-#if DEBUG
+#ifdef SHOW_DEBUG_COLOR
     self.tableView.backgroundColor = [UIColor yellowColor];
 #endif
     
@@ -90,7 +90,11 @@
     [self.pageControl setPageIndicatorTintColor:[UIColor lightGrayColor]];
     [self.pageControl setCurrentPageIndicatorTintColor:[UIColor blackColor]];
     [self.pageControl addTarget:self action:@selector(pageChanged:) forControlEvents:UIControlEventValueChanged];
+
+#ifdef SHOW_DEBUG_COLOR
     self.pageControl.backgroundColor = [UIColor blueColor];
+#endif
+    
     [self addSubview:self.pageControl];
     
     // Static View
@@ -208,11 +212,11 @@
     // set data to custom cell
     cell.data = [self.dataSource dataOfItem:indexPath.row atActivity:self.activity];
     
-#if DEBUG
+#ifdef SHOW_DEBUG_COLOR
     cell.contentView.backgroundColor = [UIColor purpleColor];
 #endif
     
-//#if DEBUG
+//#ifdef SHOW_DEBUG_COLOR
     //    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, itemTableView.frame.size.width - 20, itemTableView.frame.size.height - 20)];
     //    label.text = [NSString stringWithFormat:@"index : %ld", (long)item];
     //    label.backgroundColor = [UIColor whiteColor];
