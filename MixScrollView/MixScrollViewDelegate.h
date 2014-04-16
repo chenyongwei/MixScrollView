@@ -18,5 +18,7 @@
 - (CGFloat)heightForPageControlAtActivity:(NSInteger)activity;
 - (CGFloat)heightPercentForViewAtActivity:(NSInteger)activity;
 
+- (void)scrollToNext;
+- (void)scrollToPrevious;
 
 @end

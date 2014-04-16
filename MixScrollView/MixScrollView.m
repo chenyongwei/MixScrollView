@@ -16,6 +16,9 @@
 @end
 
 @implementation MixScrollView
+{
+    NSInteger currentDisplayCellIndex;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -70,6 +73,30 @@
     VerticalScrollCell *cell = [[VerticalScrollCell alloc] initWithFrame:activityCellFrame forActivity:indexPathActivity withDataSource:self.dataSource andDelegate:self.delegate];
     
     return cell;
+}
+
+
+#pragma mark - ScrollView Delegate
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (scrollView == self.tableView) {
+        currentDisplayCellIndex = (int) (scrollView.contentOffset.y / CGRectGetHeight(scrollView.frame));
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (scrollView == self.tableView) {
+        NSInteger willDisplayCellIndex = (int) (scrollView.contentOffset.y / CGRectGetHeight(scrollView.frame));
+//        NSLog(@"current index = %d, next index = %d", currentDisplayCellIndex, willDisplayCellIndex);
+        if (willDisplayCellIndex > currentDisplayCellIndex) {
+            // move to next
+            [self.delegate scrollToNext];
+        }
+        else if(willDisplayCellIndex < currentDisplayCellIndex) {
+            // move to previous
+            [self.delegate scrollToPrevious];
+        }
+    }
 }
 
 @end

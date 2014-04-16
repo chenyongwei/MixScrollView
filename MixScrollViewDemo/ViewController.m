@@ -166,4 +166,14 @@
     return label;
 }
 
+-(void)scrollToNext
+{
+    NSLog(@"scroll to next");
+}
+
+-(void)scrollToPrevious
+{
+    NSLog(@"scroll to previous");
+}
+
 @end
